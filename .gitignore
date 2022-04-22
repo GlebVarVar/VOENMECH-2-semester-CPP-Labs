@@ -34,3 +34,7 @@
 
 # Command-line scripts
 *.vscode
+
+
+# special files
+/lab_2/Arthur's

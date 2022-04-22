@@ -1,4 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/Library/Developer/CommandLineTools/usr/bin/gcc -DCMAKE_CXX_COMPILER=/Library/Developer/CommandLineTools/usr/bin/g++ -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/artur/Programming/StudentProjects/practice2
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/artur/Programming/StudentProjects/practice2/cmake-build-debug

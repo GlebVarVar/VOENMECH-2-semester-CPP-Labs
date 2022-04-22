@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/artur/Programming/StudentProjects/practice2/HexString.h
+iostream
+-
+IdentifiedString.h
+/Users/artur/Programming/StudentProjects/practice2/IdentifiedString.h
+
+/Users/artur/Programming/StudentProjects/practice2/IdentifiedString.h
+String.h
+/Users/artur/Programming/StudentProjects/practice2/String.h
+
+/Users/artur/Programming/StudentProjects/practice2/String.h
+iostream
+-
+
+/Users/artur/Programming/StudentProjects/practice2/main.cpp
+iostream
+-
+HexString.h
+/Users/artur/Programming/StudentProjects/practice2/HexString.h
+

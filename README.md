@@ -1,2 +1,5 @@
-# VOENMECH-2-semester.-C-Labs.
-C++ Labs.
+# VOENMECH
+* 2-semester
+* C++ Labs
+
+

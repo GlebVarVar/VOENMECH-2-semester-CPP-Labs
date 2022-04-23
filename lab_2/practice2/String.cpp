@@ -1,5 +1,6 @@
 
 #include "String.h"
+#include <string.h>
 
 using namespace std;
 
@@ -8,11 +9,24 @@ String::String() {
     m_string = new char[100];
     length = 0;
 }
+
+
 // конструтор с параметром
-String::String(char *string) { m_string = string; }
+String::String(char *string) { 
+    this -> m_string = string; 
+    count++;
+    id = count;
+}
+
 
 // конструктор копирования
-String::String(const String &str) { m_string = str.m_string; }
+String::String(const String &str) { 
+    m_string = str.m_string; 
+    length = str.length;
+    count++;
+    id = count;
+}
+
 
 // деструктор
 String::~String() {
@@ -20,16 +34,29 @@ String::~String() {
     delete m_string;
 }
 
+
+// оператор присваивания
 String &String::operator=(String &otherString) {
     m_string = otherString.m_string;
+    length = otherString.length;
+
+    count++;
+    id = count;
     return *this;
 }
 
-// методы получения длины строки
+
+// геттеры
 int String::getStringLength() {
+    cout << "Length: " << length << endl;
     return this-> length;
 }
 
-void String::getString() {
-    cout << m_string << endl;
+char * String::getString() {
+    return this-> m_string;
 }
+
+void String::getId() {
+    cout << this-> id << endl;
+}
+

@@ -7,17 +7,19 @@
 
 class IdentifiedString : public String {
 public:
-//    дефолтный конструктор
+
+    // дефолтный конструктор
     IdentifiedString() : String() {
         m_string = new char[100];
     }
 
-//    конструктор принимающий в качестве параметра строку
-    IdentifiedString(char *string) : String(string) {
-//    проверка введеной строки на наличе пробелов.
-//    если есть пробелы то строка будет пустой
-        // setString(string);
-        this -> m_string = string;
+    // конструктор принимающий на вход строку
+    IdentifiedString(char *str) {
+
+        // проверка введеной строки на наличе пробелов, если есть пробелы то строка будет пустой
+        setString(str);
+        count++;
+        this-> id = count;
     }
 
     // конструктор копирования
@@ -26,11 +28,18 @@ public:
     // деструктор
     ~IdentifiedString();
 
-//    проверка строки, если содержит пробелы записать пустую строку
+    // проверка строки, если содержит пробелы записать пустую строку
     void setString(char *string);
 
-//    получение первого вхождения символа в строку
-    int IndexOf(char c);
+
+    // перевод буквеной части числа в нижн. регистр
+    void toLower();
+
+    // перегрузка оператора индексации [ ]
+    char &operator[](int index);
+
+    // перегрузка оператора >=
+    bool operator >= (const IdentifiedString &str);
 
 };
 

@@ -8,7 +8,58 @@
 using namespace std;
 
 
+void printMainMenu();
+void printInizializationMenu();
+int printInizializationMenuChooseType(int );
+void printTestingMenu();
 
+
+
+void printAllStrings(String ** list, int N) {
+    int getVariant(int);
+    int l = 0;
+    IdentifiedString* p;
+    HexString* p1;
+
+
+    for (int i = 0; i < N; i++) {
+
+        int var = printInizializationMenuChooseType(i);
+
+        
+        // обработка строки ввода
+        string temp;
+        getline(cin, temp);
+        int tmp = temp.length();
+        char* str;
+        str = new char[tmp + 1];
+        strcpy(str, temp.c_str());
+
+        
+        // создание объекта в зависимости от выбранного типа
+        if (var == 1) {
+            IdentifiedString* p;
+            p = new IdentifiedString(str);
+            list[l] = p;
+
+        } else {
+            HexString* p1;
+            p1 = new HexString(str);    
+            list[l] = p1;
+            
+        }
+        
+        l++;
+
+    }
+
+    // cout << list[0]->getString() << endl;
+    // list[0]->getStringLength();
+    // cout << list[1]->getString() << endl;
+    // list[1]->getStringLength();
+    // system("pause");
+
+}
 
 void printMainMenu() {
     system("cls"); // очищаем экран
@@ -21,7 +72,6 @@ void printMainMenu() {
     cout << "> ";
 }
 
-
 void printInizializationMenu() {
     system("cls"); // очищаем экран
     cout << "What do you want to do?" << endl;
@@ -33,77 +83,35 @@ void printInizializationMenu() {
     cout << "> ";
 }
 
+int printInizializationMenuChooseType(int i) {
+    int getVariant(int);
+
+    system("cls"); // очищаем экран
+    cout << "Chosse type for" << " string #" << i + 1  << endl;
+    cout << "1. " << "Identifier string" << endl;
+    cout << "2. " << "Hexadecimal string" << endl;
+    cout << "> ";
+
+    int var = getVariant(2);
+
+    cout << endl << "Enter string" << endl;
+    cout << "> ";
+
+    return var;
+}
 
 void printTestingMenu() {
     system("cls"); // очищаем экран
     cout << "What do you want to do?" << endl;
-    cout << "1. Set the number of elements" << endl;
-    cout << "2. String" << endl;
-    cout << "3. Identifier string" << endl;
-    cout << "4. Hexadecimal string" << endl;
+    cout << "1. String" << endl;
+    cout << "2. Identifier string" << endl;
+    cout << "3. Hexadecimal string" << endl;
+    // cout << "4. Set operands" << endl;
 
     cout << string ( 25,  '-' ) << endl;
-    cout << "5. Exit" << endl <<  endl;
+    cout << "4. Exit" << endl <<  endl;
     cout << "> ";
 }
-
-
-void printAllStrings(String ** list, int N) {
-    int getVariant(int);
-    static int l = 0;
-    IdentifiedString* p;
-    HexString* p1;
-
-    for (int i = 0; i < N; i++) {
-        system("cls"); // очищаем экран
-
-
-        cout << "Chosse type for" << " string #" << i + 1  << endl;
-        cout << "1. " << "Identifier string" << endl;
-        cout << "2. " << "Hexadecimal string" << endl;
-        cout << "> ";
-        int var = getVariant(2);
-
-        cout << endl << "Enter string" << endl;
-        cout << "> ";
-        
-        char str[100];
-        string temp;
-        cin >> temp;
-
-        strcpy(str, temp.c_str());
-
-        
-        
-        if (var == 1) {
-            IdentifiedString* p;
-            p = new IdentifiedString(str);
-            // IdentifiedString identifierString(str);
-            cout << p << " " << &list[l];
-            list[l] = p;
-            cout << str << endl;
-        } else {
-            // HexString hexString(str); 
-            HexString* p1;
-            p1 = new HexString(str);   
-            cout << p1 << " " << &list[l];    
-            list[l] = p1;
-            cout << str << endl;
-        }
-        system("pause");
-        l++;
-
-    }
-    system("pause");
-    list[0]->getString();
-    list[1]->getString();
-    cout << p << " " << &(*list[0]) << endl;
-    cout << p1 << " " << &(*list[1])<< endl ;   
-    system("pause");
-
-}
-
-
 
 
 int getVariant(int count) {

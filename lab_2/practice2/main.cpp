@@ -5,14 +5,25 @@
 using namespace std;
 
 
-void initializationMenu();
+int initializationMenu(String**);
 void testingMenu();
 
 
-
+int String::count = 0;
 
 int main() {
     int variant;
+    int flag = 0;
+    String** list;
+    // char lol[11] = "-10AB";
+    // // char lol1[12] = "11AAADDDF22";
+    // HexString str1(lol);
+    // HexString str2(lol);
+    // str1.info();
+    // str1.hexToDec();
+    // // str1.getString();
+    // cout << (str1 == str2) << endl;
+    // system("pause");
     
 
     do {
@@ -20,11 +31,17 @@ int main() {
         variant = getVariant(3);
         switch (variant) {
             case 1:
-                initializationMenu();
+                flag = initializationMenu(list);
                 break;
 
             case 2:
-                testingMenu();
+                if (flag == 0) {
+                    cout << "You didn't enter any strings" << endl;
+                } else {
+                    testingMenu();
+                }
+                
+                system("pause");
                 break;
 
             case 3:
@@ -33,42 +50,20 @@ int main() {
 
     } while(variant != 3);
 
-
-
-    // char s[] = "11aDf";
-    // HexString hex1 = HexString(s);
-    // HexString hex2 = HexString("-A");
-    // HexString *hex3 = hex1 + &hex2;
-
-
-    // cout << "Start value: " << hex1.m_string << endl;
-    // hex1.toLower();
-    // cout << "Lower case: " << hex1.m_string << endl;
-    // hex1.toUpper();
-    // cout << "Upper case: " << hex1.m_string << endl;
-
-    // cout << "Index of 'A': " << hex1.IndexOf('A') << endl;
-
-    // cout << hex1.m_string << " + " << hex2.m_string << " = " << hex3->m_string << endl;
-
-    // hex3 = hex1 - &hex2;
-    // cout << hex1.m_string << " - " << hex2.m_string << " = " << hex3->m_string << endl;
-
-    // HexString hexEmpty = HexString("234laf d");
-    // cout << "Empty string'" << hexEmpty.m_string << "'." << endl;
     return 0;
 }
 
 
-void initializationMenu() {
+int initializationMenu(String ** list) {
     int variant;
+    int flagIn = 0;
 
     do {
         printInizializationMenu();
         variant = getVariant(3);
 
         static int count = 0;
-        String** list;
+        // String** list;
 
         switch (variant) {
             case 1: {
@@ -94,7 +89,7 @@ void initializationMenu() {
                     printAllStrings(list, count);
                 }
                 
-
+                flagIn++;
                 break;
 
             case 3:
@@ -102,6 +97,9 @@ void initializationMenu() {
         }
 
     } while(variant != 3);
+    cout << flagIn;
+    system("pause");
+    return flagIn;
 }
 
 
@@ -110,7 +108,7 @@ void testingMenu() {
 
     do {
         printTestingMenu();
-        variant = getVariant(5);
+        variant = getVariant(4);
         switch (variant) {
             case 1:
                 break;
@@ -124,11 +122,11 @@ void testingMenu() {
             case 4:
                 break;
 
-            case 5:
-                break;
+            // case 5:
+            //     break;
         }
 
-    } while(variant != 3);
+    } while(variant != 4);
 }
 
 

@@ -1,4 +1,3 @@
-
 #ifndef PRACTICE2_STRING_H
 #define PRACTICE2_STRING_H
 
@@ -10,10 +9,13 @@ class String {
 
 protected:
     char *m_string;
+    int length;
+    int id;
     
 public:
+
+    static int count;
     
-    int length;
     
 
     // дефолтный конструктор
@@ -33,8 +35,8 @@ public:
 
     // методы
     int getStringLength();
-    void getString();
-
+    char * getString();
+    void getId();
 };
 
 #endif //PRACTICE2_STRING_H

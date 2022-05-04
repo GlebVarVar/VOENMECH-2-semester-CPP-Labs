@@ -5,6 +5,17 @@
 #include "string.h"
 using namespace std;
 
+// class HelpFunctions {
+//     public:
+//         static void printPropertiesFunc (String ** list, int order );
+// };
+
+
+// void HelpFunctions::printPropertiesFunc (String ** list, int order ) {
+//     system("cls");
+//     list[order]->printProperties(list[order]->type);
+//     system("pause");
+// }
 
 
 int getVariant(int);

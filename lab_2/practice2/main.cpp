@@ -1,17 +1,12 @@
 #include <iostream>
 #include "HexString.h"
 #include "menu.h"
+#include "main.h"
 
 using namespace std;
 
 
-String ** initializationMenu(String**);
-void testingMenu(String ** list);
-void printTypesOfStrings(String ** list, int var);
-int typeCheck(String ** list, string var, int i, int countOfStrings);
-void objectMenu (String ** list, string str, int numberOfElement);
-int idenStr(String ** list, int order);
-int hexStr(String ** list, int order);
+
 
 int String::count = 0;
 
@@ -25,7 +20,8 @@ int main() {
     String** listOld;
      String** list;
 
-     
+    // for testing
+
     // char lol[11] = "-10AB";
     // char lol1[12] = "11AAADDDF22";
     // IdentifiedString str1(lol);
@@ -148,6 +144,7 @@ void printTypesOfStrings(String ** list, int var) {
     }
 
     do {
+        countOfStrings = 1;
         system("cls");
         for (int j = 0; j < masLength; j++) {
             // cout << "Start loop " << flag <<" " << j<< " var"<< var<< endl;
@@ -173,26 +170,34 @@ void printTypesOfStrings(String ** list, int var) {
 
 
 void objectMenu (String ** list, string str, int numberOfElement) {
+
     int var;
-
+    int counter = 0;
     int order = 0;
-    for(int j = 0; j < masLength; j++) if (list[j]->getString() == str) order = j;
-    
 
-    
-    
-    
-
-    do {
-        system("cls");
-        if (str == "HexString") {
-            var = hexStr(list, order);
-        } else if (str == "IdentifiedString") {
-            var = idenStr(list, order);
+    for(int j = 0; j < masLength; j++) {
+        if (list[j]->type == str) {
+            order = j;
+            ++counter;
+            if (counter == numberOfElement) break;
         }
+    }
 
+    
+    if (str == "HexString") {
+        do {
+            system("cls");
+            var = hexStr(list, order);
+        } while (var != 3);
+
+    } else if (str == "IdentifiedString") {
+         do {
+            system("cls");
+            var = idenStr(list, order);
+        } while (var != 4);
         
-    } while (var != 4);
+    }
+    
     
 }
 
@@ -246,13 +251,15 @@ int idenStr(String ** list, int order) {
 }
 
 int hexStr(String ** list, int order) {
-    int var;
 
-    cout << "menu # 1" << endl;
-    cout << "menu # 2" << endl;
-    cout << "menu # 3" << endl;
-    exitMenu(4);
-    var = getVariant(4);
+
+    int var;
+    cout << "What do you want to do?" << endl;
+    cout << "1. Print properties" << endl;
+    cout << "2. Heximal to decimal" << endl;
+    exitMenu(3);
+
+    var = getVariant(3);
     switch (var) {
         case 1:
             system("cls");
@@ -261,19 +268,11 @@ int hexStr(String ** list, int order) {
             break;
         case 2:
             system("cls");
-            list[order]->printProperties(list[order]->type);
+            list[order]->hexToDec();
             system("pause");
             break;
-        case 3:
-            system("cls");
-            list[order]->printProperties(list[order]->type);
-            system("pause");
-            break;
-        case 4: 
-            system("cls");
-            cout << "end" << endl;
-            system("pause");
-            break;
-    } 
+        
+    }
+
     return var;
 }

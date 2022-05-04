@@ -19,6 +19,7 @@ public:
     static int count;
     
     virtual void toLower() { std::cout << "B\n"; }
+    virtual void hexToDec() { std::cout << "B\n"; }
     char &operator[](int index) {
         count << m_string[index];
         return m_string[index];

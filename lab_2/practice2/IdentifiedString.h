@@ -7,19 +7,20 @@
 
 class IdentifiedString : public String {
 public:
-
     // дефолтный конструктор
     IdentifiedString() : String() {
+        this->type = "IdentifiedString";
         m_string = new char[100];
     }
 
     // конструктор принимающий на вход строку
     IdentifiedString(char *str) {
-
+        
         // проверка введеной строки на наличе пробелов, если есть пробелы то строка будет пустой
         setString(str);
         count++;
         this-> id = count;
+        this->type = "IdentifiedString";
     }
 
     // конструктор копирования

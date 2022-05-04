@@ -13,6 +13,8 @@ void printMainMenu();
 void printInizializationMenu();
 void printTestingMenu();
 void printAllStrings(String**, int);
+void exitMenu(int);
+int printInizializationMenuChooseType(int );
 
 
 

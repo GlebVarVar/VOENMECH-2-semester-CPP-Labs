@@ -4,14 +4,9 @@
 #include <stdio.h>
 #include "IdentifiedString.h"
 #include "HexString.h"
+#include "menu.h"
 
 using namespace std;
-
-
-void printMainMenu();
-void printInizializationMenu();
-int printInizializationMenuChooseType(int );
-void printTestingMenu();
 
 
 
@@ -59,6 +54,8 @@ void printAllStrings(String ** list, int N) {
     // list[1]->getStringLength();
     // system("pause");
 
+    
+
 }
 
 void printMainMenu() {
@@ -67,9 +64,7 @@ void printMainMenu() {
     cout << "1. Initialization" << endl;
     cout << "2. Testing" << endl;
 
-    cout << string ( 25,  '-' ) << endl;
-    cout << "3. Exit" << endl <<  endl;
-    cout << "> ";
+    exitMenu(3);
 }
 
 void printInizializationMenu() {
@@ -78,9 +73,7 @@ void printInizializationMenu() {
     cout << "1. Set the number of elements" << endl;
     cout << "2. Set initial values" << endl;
 
-    cout << string ( 25,  '-' ) << endl;
-    cout << "3. Exit" << endl <<  endl;
-    cout << "> ";
+    exitMenu(3);
 }
 
 int printInizializationMenuChooseType(int i) {
@@ -102,16 +95,41 @@ int printInizializationMenuChooseType(int i) {
 
 void printTestingMenu() {
     system("cls"); // очищаем экран
-    cout << "What do you want to do?" << endl;
+    cout << "Choose string type?" << endl;
     cout << "1. String" << endl;
     cout << "2. Identifier string" << endl;
     cout << "3. Hexadecimal string" << endl;
+    exitMenu(4);
     // cout << "4. Set operands" << endl;
 
-    cout << string ( 25,  '-' ) << endl;
-    cout << "4. Exit" << endl <<  endl;
-    cout << "> ";
+    
 }
+
+
+// class menus
+void printStringMenu() {
+    system("cls"); // очищаем экран
+    cout << "What do you want to do?" << endl;
+    cout << "1. To lower" << endl;
+    cout << "2. Choose index of string" << endl;
+    // cout << "3. Hexadecimal string" << endl;
+}
+
+void printHexMenu() {
+    // exitMenu();
+}
+
+void printIdentifiedMenu() {
+    // exitMenu();
+}
+
+
+
+void exitMenu(int exitNumber) {
+    cout << string ( 25,  '-' ) << endl;
+    cout << exitNumber << ". Exit" << endl <<  endl;
+    cout << "> ";
+} 
 
 
 int getVariant(int count) {
@@ -134,3 +152,6 @@ int getVariant(int count) {
 
     return var;
 }
+
+
+

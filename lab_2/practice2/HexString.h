@@ -17,7 +17,6 @@ private:
     int char2dec(char hexChar);
 
 public:
-    
 
     // обозначает какого знака число
     bool isPositive = true;
@@ -31,7 +30,7 @@ public:
     // конструктор принимающий в качестве параметра строку
     HexString(char *str) {
         setString(str);
-    
+        this-> type = "HexString";
         count++;
         this-> id = count;
     }

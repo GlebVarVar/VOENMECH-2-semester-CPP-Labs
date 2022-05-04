@@ -7,6 +7,7 @@ using namespace std;
 // конструктор дефолтный
 String::String() {
     m_string = new char[100];
+    this->type = "String";
     length = 0;
 }
 
@@ -14,6 +15,7 @@ String::String() {
 // конструтор с параметром
 String::String(char *string) { 
     this -> m_string = string; 
+    this-> type = "String";
     count++;
     id = count;
 }
@@ -48,7 +50,6 @@ String &String::operator=(String &otherString) {
 
 // геттеры
 int String::getStringLength() {
-    cout << "Length: " << length << endl;
     return this-> length;
 }
 
@@ -56,7 +57,8 @@ char * String::getString() {
     return this-> m_string;
 }
 
-void String::getId() {
+int String::getId() {
     cout << this-> id << endl;
+    return this->id;
 }
 

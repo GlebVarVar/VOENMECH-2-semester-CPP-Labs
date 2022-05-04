@@ -49,15 +49,17 @@ void IdentifiedString::toLower() {
 }
 
 
-// перегрузка оператора индексации [ ]
+// перегрузка оператора индексации >=
 bool IdentifiedString::operator >= (const IdentifiedString &str) {
     return (length >= str.length);
 }
 
 
-// перегрузка оператора >=
+// перегрузка оператора []
 char &IdentifiedString::operator[](int index) {
+    cout << m_string[index];
     return m_string[index];
+
 }
 
 

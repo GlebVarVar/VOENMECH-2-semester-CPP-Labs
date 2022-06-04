@@ -58,3 +58,4 @@ public:
 };
 
 #endif //PRACTICE2_STRING_H
+

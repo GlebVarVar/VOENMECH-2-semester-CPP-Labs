@@ -59,20 +59,28 @@ void printAllStrings(String ** list, int N) {
 }
 
 void printMainMenu() {
-    system("cls"); // очищаем экран
-    cout << "What do you want to do?" << endl;
-    cout << "1. Initialization" << endl;
-    cout << "2. Testing" << endl;
 
+    system("cls"); // очищаем экран
+
+    string menu[] =  { 
+        "What do you want to do?",
+        "1. Initialization", 
+        "2. Testing" };
+
+    printMenu(menu, 3);
     exitMenu(3);
 }
 
 void printInizializationMenu() {
-    system("cls"); // очищаем экран
-    cout << "What do you want to do?" << endl;
-    cout << "1. Set the number of elements" << endl;
-    cout << "2. Set initial values" << endl;
 
+    system("cls"); // очищаем экран
+    
+    string menu[] =  { 
+        "What do you want to do?",
+        "1. Set the number of elements", 
+        "2. Set initial values" };
+
+    printMenu(menu, 3);
     exitMenu(3);
 }
 
@@ -94,11 +102,16 @@ int printInizializationMenuChooseType(int i) {
 }
 
 void printTestingMenu() {
+
     system("cls"); // очищаем экран
-    cout << "Choose string type?" << endl;
-    cout << "1. String" << endl;
-    cout << "2. Identifier string" << endl;
-    cout << "3. Hexadecimal string" << endl;
+
+    string menu[] =  { 
+        "What do you want to do?",
+        "1. String",
+        "2. Identifier string", 
+        "3. Hexadecimal string" };
+
+    printMenu(menu, 4);
     exitMenu(4);
     // cout << "4. Set operands" << endl;
 
@@ -108,10 +121,15 @@ void printTestingMenu() {
 
 // class menus
 void printStringMenu() {
+
     system("cls"); // очищаем экран
-    cout << "What do you want to do?" << endl;
-    cout << "1. To lower" << endl;
-    cout << "2. Choose index of string" << endl;
+    
+    string menu[] =  { 
+        "What do you want to do?",
+        "1. To lower", 
+        "2. Choose index of string" };
+
+    printMenu(menu, 3);
     // cout << "3. Hexadecimal string" << endl;
 }
 
@@ -125,33 +143,6 @@ void printIdentifiedMenu() {
 
 
 
-void exitMenu(int exitNumber) {
-    cout << string ( 25,  '-' ) << endl;
-    cout << exitNumber << ". Exit" << endl <<  endl;
-    cout << "> ";
-} 
-
-
-int getVariant(int count) {
-    int var;
-    cin.clear();
-    string s; // строка для считывания введённых данных
-    getline(cin, s); // считываем строку
-    // пока ввод некорректен, сообщаем об этом и просим повторить его
-    while (sscanf(s.c_str(), "%d", &var) != 1 || var < 1 || var > count) {
-        if (s.size() != 0) {
-            cout << "Incorrect input. Try again: "; // выводим сообщение об ошибке
-            getline(cin, s); // считываем строку повторно
-        } else {
-            var = getVariant(count);
-            if (var >= 1 || var <= count) {
-                break;
-            }
-        }
-    }
-
-    return var;
-}
 
 
 

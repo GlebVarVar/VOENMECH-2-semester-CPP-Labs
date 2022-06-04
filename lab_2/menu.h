@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include "string.h"
+
+#include "D:\Voenmech-Study\Proga\helpFunctions\functions.h"
+
+
 using namespace std;
 
 // class HelpFunctions {
@@ -26,11 +30,6 @@ void printTestingMenu();
 void printAllStrings(String**, int);
 void exitMenu(int);
 int printInizializationMenuChooseType(int );
-
-
-
-
-
 
 
 #endif // menu.h

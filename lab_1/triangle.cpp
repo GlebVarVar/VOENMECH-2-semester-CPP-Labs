@@ -3,6 +3,8 @@
 #include "menu.h"
 #include "cmath"
 
+// подключение функций-помощников
+
 
 triangle::triangle()
 {
@@ -77,17 +79,17 @@ void triangle::set_triangle_properties() {
     do {
     system("cls");
 
-    cout << "1. Change triangle name" << endl;
-    cout << "2. Change triangle side" << endl;
-    cout << "3. Change angle #1" << endl;
-    cout << "4. Change angle #2" << endl;
+    string menu[] = {
+        "1. Change triangle name",
+        "2. Change triangle side",
+        "3. Change angle #1", 
+        "4. Change angle #2" 
+    };
+    printMenu(menu, 4);
 
-    cout << string ( 25,  '-' ) << endl;
-    cout << "5. Exit" << endl << endl;
+    exitMenu(5);
 
-    cout << ">" ;
-
-    variant = get_variant(5);
+    variant = getVariant(5);
     switch (variant) {
         case 1:
             cout << "Enter new name" << endl;
@@ -122,9 +124,9 @@ void triangle::set_triangle_properties() {
     
 }
 void triangle::calculation_all_angles() {
+    double angle_3 = (180 - this->angle_1 - this->angle_2);
     cout << "Angle #1 = " << this-> angle_1 << endl;
     cout << "Angle #2 = " << this-> angle_2 << endl;
-    double angle_3 = (180 - this->angle_1 - this->angle_2);
     cout << "Angle #3 = " << angle_3 << endl;
 }
 void triangle::calculating_all_sides() {
@@ -158,17 +160,11 @@ void triangle::type() {
     }
 
 }
-void triangle::find_similarity(triangle* &list, int N,  int current) {
-    cout << "Choose triangle" << endl;
-    cout << "> ";
-    system("cls"); // очищаем экран
-    for (int i = 0; i < N; i++) {
-        cout << i + 1 << ". " << list[i].name << endl;
-    }
-    cout << string ( 25,  '-' ) << endl;
-    cout << N + 1 << ". Exit" << endl << endl;
-    cout << ">";
-    int var = get_variant(N + 1);
+void triangle::find_similarity(triangle* list, int N,  int current) {
+    
+    print_all_triagles(list, N);
+    
+    int var = getVariant(N + 1);
     int count = N + 1;
     if (var < count) {
         cout << (list[current] ^ list[var-1]) << endl;

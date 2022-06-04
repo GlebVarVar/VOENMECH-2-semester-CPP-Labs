@@ -3,6 +3,9 @@
 #include "menu.h"
 #include "main.h"
 
+// подключакм функции-помощники
+#include "D:\Voenmech-Study\Proga\helpFunctions\functions.cpp"
+
 using namespace std;
 
 
@@ -215,10 +218,14 @@ int typeCheck(String ** list, string var, int i, int count) {
 int idenStr(String ** list, int order) {
 
     int var;
-    cout << "What do you want to do?" << endl;
-    cout << "1. Print properties" << endl;
-    cout << "2. To lower register" << endl;
-    cout << "3. Choose index of string" << endl;
+    
+    string menu[] =  { 
+        "What do you want to do?",
+        "1. Print properties",
+        "2. To lower register", 
+        "3. Choose index of string" };
+
+    printMenu(menu, 4);
     exitMenu(4);
 
     var = getVariant(4);
@@ -254,25 +261,28 @@ int hexStr(String ** list, int order) {
 
 
     int var;
-    cout << "What do you want to do?" << endl;
-    cout << "1. Print properties" << endl;
-    cout << "2. Heximal to decimal" << endl;
+
+    string menu[] =  { 
+        "What do you want to do?",
+        "1. Print properties", 
+        "2. Heximal to decimal" };
+
+    printMenu(menu, 3);
     exitMenu(3);
 
     var = getVariant(3);
+    system("cls");
     switch (var) {
         case 1:
-            system("cls");
             list[order]->printProperties(list[order]->type);
-            system("pause");
             break;
+
         case 2:
-            system("cls");
             list[order]->hexToDec();
-            system("pause");
             break;
         
     }
+    system("pause");
 
     return var;
 }

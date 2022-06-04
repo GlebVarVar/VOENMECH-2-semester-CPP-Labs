@@ -4,6 +4,8 @@
 #include <iostream>
 #include "String.h"
 
+#include "D:\Voenmech-Study\Proga\helpFunctions\functions.h"
+
 
 String ** initializationMenu(String**);
 void testingMenu(String ** list);

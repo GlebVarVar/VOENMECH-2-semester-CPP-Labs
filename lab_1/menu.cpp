@@ -1,12 +1,6 @@
-#include <iostream>
-#include "menu.h"
 #include "triangle.h"
-#include "string"
+#include "menu.h"
 
-
-
-
-using namespace std;
 
 
 void printTriangleMenu() {

@@ -4,7 +4,7 @@
 #include "main.h"
 
 // подключакм функции-помощники
-#include "D:\Voenmech-Study\Proga\helpFunctions\functions.cpp"
+#include "..\helpFunctions\functions.cpp"
 
 using namespace std;
 

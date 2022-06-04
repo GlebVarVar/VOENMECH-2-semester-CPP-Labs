@@ -1,11 +1,15 @@
-#include "triangle.h"
-
 #ifndef MENU_H
 #define MENU_H
 
-// подключение функций-помощников
-#include "D:\Voenmech-Study\Proga\helpFunctions\functions.h"
 
+// подключение заголовочных файлов
+#include "string"
+#include "iostream"
+// подключение функций-помощников
+#include "..\helpFunctions\functions.h"
+
+
+using namespace std;
 
 
 

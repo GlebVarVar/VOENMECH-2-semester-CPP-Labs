@@ -1,9 +1,7 @@
 #include "triangle.h"
-#include "memory.h"
 #include "menu.h"
-#include "cmath"
 
-// подключение функций-помощников
+
 
 
 triangle::triangle()

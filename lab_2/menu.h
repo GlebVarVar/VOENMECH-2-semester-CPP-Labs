@@ -4,7 +4,7 @@
 #include <iostream>
 #include "string.h"
 
-#include "D:\Voenmech-Study\Proga\helpFunctions\functions.h"
+#include "..\helpFunctions\functions.h"
 
 
 using namespace std;

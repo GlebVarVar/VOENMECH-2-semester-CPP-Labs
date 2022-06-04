@@ -1,6 +1,5 @@
 #include "testClasses.h"
-#include ".\Classes\stackArray.h"
-#include ".\Classes\stackList.h"
+
 
 
 void testClasses() {

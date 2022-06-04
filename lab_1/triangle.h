@@ -1,7 +1,14 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
+// заголовочные файлы
 #include "iostream"
+#include "memory.h"
+#include "cmath"
+
+
+
+
 using namespace std;
 
 

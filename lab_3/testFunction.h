@@ -1,11 +1,12 @@
 #if !defined(TestFunction_H)
 #define TestFunction_H
 
+// Заголовочные файлы
 #include "iostream"
 #include "algorithm"
 #include "string"
-
-#include "D:\Voenmech-Study\Proga\helpFunctions\functions.h"
+// Функции-помощники
+#include "..\helpFunctions\functions.h"
 
 
 using namespace std;

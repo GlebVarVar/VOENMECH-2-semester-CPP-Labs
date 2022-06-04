@@ -2,7 +2,7 @@
 #define MAIN_H
 
 // функции-помощники
-#include "D:\Voenmech-Study\Proga\helpFunctions\functions.cpp"
+#include "..\helpFunctions\functions.cpp"
 // заголовочные файлы
 #include "string"
 // Заголовочные файлы программы

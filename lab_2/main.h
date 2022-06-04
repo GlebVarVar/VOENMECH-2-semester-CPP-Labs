@@ -4,7 +4,7 @@
 #include <iostream>
 #include "String.h"
 
-#include "D:\Voenmech-Study\Proga\helpFunctions\functions.h"
+#include "..\helpFunctions\functions.h"
 
 
 String ** initializationMenu(String**);

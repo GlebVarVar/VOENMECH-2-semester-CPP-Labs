@@ -38,3 +38,5 @@
 
 # special files
 */build
+
+!/lab_5/**

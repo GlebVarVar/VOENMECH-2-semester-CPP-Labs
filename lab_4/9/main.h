@@ -11,7 +11,7 @@
 #include <random>
 #include "string_view"
 #include "cstring"
-#include "..\helpFunctions\functions.cpp"
+#include "..\..\helpFunctions\functions.cpp"
 #include <iomanip>
 
 
@@ -28,7 +28,7 @@ struct element
 
 };
 
-map<int,int> dictionary;
+map<char,int> dictionary;
 string dataFromFile;
 set<string_view> uniqueElements;
 list<element> List;

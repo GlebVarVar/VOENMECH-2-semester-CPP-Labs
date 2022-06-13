@@ -4,7 +4,7 @@
 // Заголовочные файлы
 #include "string"
 // функции-помощники
-#include "..\helpFunctions\functions.h"
+#include "..\..\helpFunctions\functions.h"
 // файлы проекта
 #include ".\Classes\stackArray.h"
 #include ".\Classes\stackList.h"

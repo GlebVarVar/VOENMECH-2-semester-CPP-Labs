@@ -51,7 +51,7 @@ public:
     bool operator > (const HexString &str) {
         return (length > str.length);
     }
-
+    
     // перегрузка оператора ==
     bool operator == (HexString &str) {
         return (this->getString() == str.getString());

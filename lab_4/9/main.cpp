@@ -11,8 +11,8 @@ int main ()
     getline(file,dataFromFile);
     file.close();
     
-    createSetAndMap(dataFromFile, '#');
-
+    createSetAndMap(dataFromFile, '-');
+    
     generatorStructures();
 
     sortirovka();
@@ -52,8 +52,10 @@ int main ()
                 
             case 2: {
                  // вывод словаря
-                for (auto i : dictionary) {  
-                    cout << "Key " << i.first << ", value " << i.second << endl;
+                for (auto it = dictionary.begin(); it != dictionary.end();) {  
+                    cout << "Key " << it->first << ", value " << it->second << endl;
+                    ++it;
+                    
                 }
                 break;
             }
@@ -94,19 +96,18 @@ int main ()
 }
 
 // Добавление элемента в множество
-void createSetAndMap( string_view input_string, const char separator)
-{
-
+void createSetAndMap( string_view input_string, const char separator) {
+    
     size_t part_length = 0;
     while( ( part_length = input_string.find( separator ) ) != input_string.npos ) {
         // set
         uniqueElements.insert(input_string.substr(0,part_length));
 
         // map
-        if( dictionary.find( part_length ) == dictionary.end() ) {
-            dictionary.insert( make_pair( part_length, 1 ) );
+        if( dictionary.find( input_string.substr(0,part_length)[0] ) == dictionary.end() ) {
+            dictionary.insert( make_pair( input_string.substr(0,part_length)[0], 1 ) );
         } else {
-            auto i = dictionary.find( part_length );
+            auto i = dictionary.find( input_string.substr(0,part_length)[0] );
             i->second++;
         }
 
@@ -120,7 +121,7 @@ void createSetAndMap( string_view input_string, const char separator)
 
         
         // map
-        int lastWord = input_string.length();
+        int lastWord = input_string[0];
         if( dictionary.find( lastWord ) == dictionary.end() ) {
             dictionary.insert( make_pair( lastWord, 1 ) );
         } else {
@@ -134,37 +135,34 @@ void createSetAndMap( string_view input_string, const char separator)
 
 
 int Random(int left, int right) {
-    return rand()%right + left;
+    int res = rand()%(right + left);
+    return res;
 }
 // Генератор структур
-void generatorStructures()
-{
-    
+void generatorStructures() {
     for(int j=0;j<100;j++)
     {
-        element temp = {"", 1, NULL}; // элемента списка
+        element temp;
         auto i = uniqueElements.begin();
-        advance(i, Random(0,26));
-        temp.name = *i; // название элемента
+        auto x = dictionary.begin(), y = dictionary.begin(), z = dictionary.begin();
 
-        // Основной параметр
-        for ( int m = 0; m < 3; m++) {
-            auto x = dictionary.begin();
-            advance(x,Random(0, dictionary.size()));
-            temp.first *= x->second;
-        }
-         
-        // Вторичный параметр
-        temp.second = dictionary[temp.name.length()] * dictionary[temp.name.length()];
-        
+        int dictionarySize = dictionary.size() - 1;
+        advance(i,Random(0,dictionarySize));
+        temp.name = *i;
+        temp.second = dictionary[(*i)[0]] * dictionary[(*i)[0]];
+
+        advance(x,Random(0,dictionarySize));
+        advance(y,Random(0,dictionarySize));
+        advance(z,Random(0,dictionarySize));
+
+        temp.first = y->second * x->second * z->second;
         List.push_back(temp);
+        
     }
-    
 }
 
 // Сортировка списка
-void sortirovka()
-{
+void sortirovka() {
     sortedList.assign(List.begin(), List.end());
     sortedList.sort([](const element &a, const element &b){
         return a.second < b.second;
@@ -180,7 +178,7 @@ list<element> copyIf() {
         List.begin(),
         List.end(),
         copiedList.begin(),
-        [](const element &a) {return ((a.first - a.second) % 2 == 0);}
+        [](const element &a) {return (a.name.length() % 2 == 0);}
     );
     copiedList.remove_if([](const element &a) {return a.first+a.second == 0;});
     return copiedList;
@@ -203,8 +201,7 @@ void createJson() {
 }
 
 // открыть json
-void fromJson()
-{
+void fromJson() {
     ifstream file;
     file.open("new.json");
 

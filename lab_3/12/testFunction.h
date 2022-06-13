@@ -6,7 +6,7 @@
 #include "algorithm"
 #include "string"
 // Функции-помощники
-#include "..\helpFunctions\functions.h"
+#include "..\..\helpFunctions\functions.h"
 
 
 using namespace std;

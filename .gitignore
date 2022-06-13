@@ -38,5 +38,5 @@
 
 # special files
 */build
-
+*/youtube/**
 !/lab_5/**

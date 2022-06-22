@@ -5,6 +5,7 @@
 #include "iostream"
 #include "algorithm"
 #include "string"
+#include <iomanip> 
 // Функции-помощники
 #include "..\..\helpFunctions\functions.h"
 
@@ -14,14 +15,12 @@ using namespace std;
 
 // Функции
 template <class T>
-void testFunctionInput(int size, int max, T *list);
+void testFunctionInput(int , T *);
 
 template <class T> 
-int printSortedList (T mas[], int n);
+int printSum (T mas[], int );
 
-template <class T>
-void sort (T mas[], int n, int flag);
 
-int getVariantTemplate(int count);
+int getVariantTemplate(int );
 
 #endif // TestFunction_H

@@ -20,17 +20,17 @@ void testClasses() {
 
         switch (variant) {
             case 1: {
-                List<int> *stek;
-                stek = new List<int>;
-                templateClassTest(stek);
+                List<float> *Deque;
+                Deque = new List<float>;
+                templateClassTest(Deque);
                 
                 break;
             }
                 
             case 2: {
-                Array<int> *stek;
-                stek = new Array<int>(10);
-                templateClassTest(stek);
+                Vector<double> *Deque;
+                Deque = new Vector<double>(10);
+                templateClassTest(Deque);
                 
                 break;
             }
@@ -46,7 +46,7 @@ void testClasses() {
 
 
 template<class T>
-void templateClassTest (Stack<T>* expamleMas) {
+void templateClassTest (Deque<T>* expamleMas) {
     int variant;
 
     do {
@@ -54,56 +54,88 @@ void templateClassTest (Stack<T>* expamleMas) {
 
         string menu[] = {
             "What do you want to do?",
-            "1. Push",
-            "2. Pop",
-            "3. Top",
-            "4. Empty",
-            "5. Full"};
-        printMenu(menu, 6);
-        exitMenu(6);
+            "1. Push front",
+            "2. Push back",
+            "3. Pop back",
+            "4. Get front",
+            "5. Get back",
+            "6. Empty",
+            "7. Full"};
+        printMenu(menu, 8);
+        exitMenu(8);
 
-        variant = getVariant(6);
+        variant = getVariant(8);
 
         switch (variant) {
             case 1: {
                 cout << "Enter value" << endl << ">";
-                int value = getVariant(100);
-                expamleMas->Push(value);
+                T temp;
+                while (!(cin >> temp) || (cin.peek() != '\n'))
+                {
+                    cin.clear();
+                    while (cin.get() != '\n');
+                    cout << "Input error! Repeat please...\n";
+                }
+                
+                expamleMas->pushFront(temp);
+                break;
+            }
+
+            case 2: {
+                cout << "Enter value" << endl << ">";
+                T temp;
+                while (!(cin >> temp) || (cin.peek() != '\n'))
+                {
+                    cin.clear();
+                    while (cin.get() != '\n');
+                    cout << "Input error! Repeat please...\n";
+                }
+                
+                expamleMas->pushBack(temp);
                 break;
             }
                 
 
-            case 2: {
-                expamleMas->Pop();
-                system("pause");
-                break;
-            } 
-                
             case 3: {
-                T temp = expamleMas->Top();
-                if (temp != -1) {
-                    cout << "Top value is " << temp << endl;
-                } 
+                expamleMas->popBack();
                 system("pause");
                 break;
             } 
                 
             case 4: {
+                T temp = expamleMas->getFront();
+                if (temp != -1) {
+                    cout << "Front value is " << temp << endl;
+                } 
+                system("pause");
+                break;
+            } 
+
+            case 5: {
+                T temp = expamleMas->getBack();
+                if (temp != -1) {
+                    cout << "Back value is " << temp << endl;
+                } 
+                system("pause");
+                break;
+            } 
+                
+            case 6: {
                 if (expamleMas->Empty()) {
-                    cout << "Stack is empty :(" << endl;
+                    cout << "Deque is empty :(" << endl;
                 } else {
-                    cout << "Stack is not empty :)" << endl;
+                    cout << "Deque is not empty :)" << endl;
                 }
                 system("pause");
                 break;
             
             } 
                 
-            case 5: {
+            case 7: {
                 if (expamleMas->Full()) {
-                    cout << "Stack is full :(" << endl;
+                    cout << "Deque is full :(" << endl;
                 } else {
-                    cout << "Stack is not full :)" << endl;
+                    cout << "Deque is not full :)" << endl;
                 }
                 system("pause");
                 break;
@@ -113,5 +145,5 @@ void templateClassTest (Stack<T>* expamleMas) {
 
         }
 
-    } while(variant != 6);
+    } while(variant != 8);
 }

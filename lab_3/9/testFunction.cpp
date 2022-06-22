@@ -1,53 +1,26 @@
 #include "testFunction.h"
 
 
-// Сортировка по возрастанию
-template <class T>
-void sort (T mas[], int n, int flag) {
-    for (int startIndex = 0; startIndex < n - 1; ++startIndex) {
-
-        int smallestIndex = startIndex;
-
-        for (int currentIndex = startIndex + 1; currentIndex < n; ++currentIndex) {
-            if (flag == 1) { // в зависимости от флага сортируем по убыванию или возрастанию
-                if (mas[currentIndex] < mas[smallestIndex])
-                    smallestIndex = currentIndex;
-            } else {
-                if (mas[currentIndex] > mas[smallestIndex])
-                    smallestIndex = currentIndex;
-            }
-            
-        }
-        std::swap(mas[startIndex], mas[smallestIndex]);
-    }
-}
-
-
+// Вычисление суммы положительных элементов массива.
 template <class T> 
-int printSortedList (T mas[], int n) { 
+int printSum (T mas[], int n) { 
+
+    T sum = 0;
     
     system("cls"); // очищаем экран
     cout << endl << "Start list" << endl;
-    for (int index = 0; index < n; ++index) cout << (int) mas[index] << " ";
+    for (int index = 0; index < n; ++index) cout << fixed << setprecision(4) << mas[index] << " ";
     cout << endl;
-    sort(mas, n, 1);
-    
-
-
-    int temp;
-    // поиск первого элемента, что больше нуля
-    for (int startIndex = 0; startIndex < n ; ++startIndex) {
-        if (mas[startIndex] > 0) {
-            temp = startIndex;   
-            break;
+     
+    // Суммирование положительных элементов массива mas
+    for (int index = 0; index < n; ++index) {
+        if (mas[index] > 0) {
+            sum += mas[index];
         }
     }
-
-    sort(mas, temp, 0);   
     
-    // вывод значений массива
-    cout << endl << "Sorted list" << endl;
-    for (int index = 0; index < n; ++index) cout << (int) mas[index] << " ";
+    // Вывод суммы положительных элементов массива
+    cout << endl << "Sum of positive array elements: " << sum ;
 
     return n;
 }
@@ -61,19 +34,19 @@ void testFunction() {
     // выбор типа массива
     string menu[] = {
         "Choose testing args type",
-        "1. int",
-        "2. char"};
+        "1. float",
+        "2. double"};
     printMenu(menu, 3);
     
     int type = getVariant(2);
 
     cout << endl <<  "Enter " << size <<" Numbers" << endl ;
     if (type == 1) {
-        int list[size];
-        testFunctionInput(size, 1000000000, list);
+        float list[size];
+        testFunctionInput(size,  list);
     } else {
-        char list[size];
-        testFunctionInput(size, 128, list);
+        double list[size];
+        testFunctionInput(size, list);
     }
     cout << endl;
     system("pause");
@@ -83,33 +56,18 @@ void testFunction() {
 
 // Input and mas sorting
 template<class T>
-void testFunctionInput(int size, int type, T *list) {
+void testFunctionInput(int size, T *list) {
     for (int i = 0; i < size; i++) {
-        cout <<  "list[" << i << "] = ";
-        list[i] = getVariantTemplate(type);
-    }
-    printSortedList(list, size);
-}
-
-
-// Умный input элементов
-int getVariantTemplate(int count) {
-    int var;
-    cin.clear();
-    string s; // строка для считывания введённых данных
-    getline(cin, s); // считываем строку
-    // пока ввод некорректен, сообщаем об этом и просим повторить его
-    while (sscanf(s.c_str(), "%d", &var) != 1 || var < (-count+1) || var > count) {
-        if (s.size() != 0) {
-            cout << "Incorrect input. Try again: "; // выводим сообщение об ошибке
-            getline(cin, s); // считываем строку повторно
-        } else {
-            var = getVariantTemplate(count);
-            if (var >= 1 || var <= count) {
-                break;
-            }
+        cout <<  "list[" << i + 1 << "] = ";
+        T temp;
+        while (!(cin >> temp) || (cin.peek() != '\n'))
+        {
+            cin.clear();
+            while (cin.get() != '\n');
+            cout << "Input error! Repeat please...\n";
         }
+        list[i] = temp;
     }
-
-    return var;
+    printSum(list, size);
 }
+

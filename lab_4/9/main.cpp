@@ -1,10 +1,6 @@
 #include "main.h"
 
 
-
-
-
-
 int main ()
 {
     ifstream file("data.txt");
@@ -12,7 +8,7 @@ int main ()
     file.close();
     
     createSetAndMap(dataFromFile, '-');
-    
+
     generatorStructures();
 
     sortirovka();

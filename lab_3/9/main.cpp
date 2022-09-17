@@ -1,9 +1,7 @@
 #include "main.h"
 
-
 int main() {
     
-
     int variant = 0;
     do {
 
@@ -17,9 +15,7 @@ int main() {
         exitMenu(3);
 
         variant = getVariant(3);
-
-        
-
+    
         switch (variant) {
             case 1: {
                 testFunction();
@@ -29,19 +25,10 @@ int main() {
                 testClasses();
                 break;
             }
-                
-
             case 3:
                 break;
         }
 
     } while(variant != 3);
 
-     
-    
-    return 0;
-}
-
-
-
-
+    return 0;}

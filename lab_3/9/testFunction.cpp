@@ -1,12 +1,10 @@
 #include "testFunction.h"
 
-
 // Вычисление суммы положительных элементов массива.
 template <class T> 
 int printSum (T mas[], int n) { 
 
     T sum = 0;
-    
     system("cls"); // очищаем экран
     cout << endl << "Start list" << endl;
     for (int index = 0; index < n; ++index) cout << fixed << setprecision(4) << mas[index] << " ";
@@ -21,7 +19,6 @@ int printSum (T mas[], int n) {
     
     // Вывод суммы положительных элементов массива
     cout << endl << "Sum of positive array elements: " << sum ;
-
     return n;
 }
 
@@ -50,8 +47,6 @@ void testFunction() {
     }
     cout << endl;
     system("pause");
-    
-    
 }
 
 // Input and mas sorting
@@ -70,4 +65,3 @@ void testFunctionInput(int size, T *list) {
     }
     printSum(list, size);
 }
-

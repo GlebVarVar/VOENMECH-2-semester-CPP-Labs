@@ -99,5 +99,3 @@ void HexString::info() {
     cout << "Length: " << length << endl;
     cout << endl;
 }
-
-

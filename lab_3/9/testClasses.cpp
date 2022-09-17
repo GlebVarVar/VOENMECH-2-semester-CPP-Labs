@@ -1,7 +1,5 @@
 #include "testClasses.h"
 
-
-
 void testClasses() {
     int variant;
 
@@ -17,13 +15,11 @@ void testClasses() {
 
         variant = getVariant(3);
 
-
         switch (variant) {
             case 1: {
                 List<float> *Deque;
                 Deque = new List<float>;
                 templateClassTest(Deque);
-                
                 break;
             }
                 
@@ -31,19 +27,14 @@ void testClasses() {
                 Vector<double> *Deque;
                 Deque = new Vector<double>(10);
                 templateClassTest(Deque);
-                
                 break;
             }
-                
+
             default:
-                break;
+            break;
         }
-
-
     } while (variant != 3);
 }
-
-
 
 template<class T>
 void templateClassTest (Deque<T>* expamleMas) {
@@ -95,7 +86,6 @@ void templateClassTest (Deque<T>* expamleMas) {
                 break;
             }
                 
-
             case 3: {
                 expamleMas->popBack();
                 system("pause");
@@ -140,10 +130,6 @@ void templateClassTest (Deque<T>* expamleMas) {
                 system("pause");
                 break;
             } 
-                
-            
-
         }
-
     } while(variant != 8);
 }

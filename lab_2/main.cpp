@@ -17,6 +17,7 @@ int String::count = 0;
 int masLength = 0;
 int initializedMass = 0;
 
+
 int main() {
     int variant;
     int flag = 0;
@@ -24,7 +25,8 @@ int main() {
      String** list;
 
     // for testing
-
+    
+    system("pause");
     // char lol[11] = "-10AB";
     // char lol1[12] = "11AAADDDF22";
     // IdentifiedString str1(lol);

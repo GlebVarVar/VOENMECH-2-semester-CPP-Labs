@@ -8,6 +8,11 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
+
+
+
+
+
 float map(float minX, float maxX, float minPxX, float maxPxX, float x)
 {
     return (x - minX) / (maxX - minX) * (maxPxX - minPxX) + minPxX;
